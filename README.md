@@ -15,7 +15,3 @@ Thiết kế hệ thống tra cứu điểm thi trên AWS Learner Lab với dữ
 
 Thực hiện kiểm thử tải, đánh giá khả năng đáp ứng và báo cáo chi phí sử dụng.
 
-## Tài liệu
-
-- [Nhật ký công việc](WORKLOG.md)
-- Báo cáo tuần 1: sẽ bổ sung trong thư mục `Tuan1`.
