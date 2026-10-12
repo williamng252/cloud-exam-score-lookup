@@ -15,3 +15,4 @@ Thiết kế hệ thống tra cứu điểm thi trên AWS Learner Lab với dữ
 
 Thực hiện kiểm thử tải, đánh giá khả năng đáp ứng và báo cáo chi phí sử dụng.
 
+![Uploading image.png…]()
