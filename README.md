@@ -1,4 +1,4 @@
-<img width="1020" height="650" alt="image" src="https://github.com/user-attachments/assets/aade2b88-9193-4646-a985-7a4fe1a998e9" /># Hệ thống tra cứu điểm thi chịu tải đột biến
+# Hệ thống tra cứu điểm thi chịu tải đột biến
 
 Đồ án môn Điện toán đám mây — Giảng viên hướng dẫn: Huỳnh Xuân Phụng.
 
