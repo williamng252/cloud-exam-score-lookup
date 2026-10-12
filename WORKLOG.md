@@ -1,6 +1,6 @@
 # TUẦN 1: TÌM HIỂU LÝ THUYẾT, THIẾT KẾ KIẾN TRÚC & DỰNG NỀN TẢNG HẠ TẦNG VPC/S3 CHO HỆ THỐNG TRA CỨU ĐIỂM THI
 
-Thời gian thực hiện: 05/10/2026 – 11/10/2026
+Thời gian thực hiện: 05/10/2026 – 11/10/2026 
 Mục tiêu tuần 1:
 
 * Phân tích yêu cầu, xác định chức năng và mô hình dữ liệu tra cứu điểm thi.
