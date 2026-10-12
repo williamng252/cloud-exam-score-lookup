@@ -3,37 +3,36 @@
 Thời gian thực hiện: 05/10/2026 – 11/10/2026
 Mục tiêu tuần 1:
 
-* Nghiên cứu lý thuyết các dịch vụ cốt lõi: API Gateway, AWS Lambda, Amazon DynamoDB và Amazon CloudWatch.
-* Thiết kế mô hình kiến trúc dự kiến cho hệ thống tra cứu điểm thi chịu tải đột biến và quy ước gắn nhẫn (Tagging) cho tài nguyên.
-* Tạo hạ tầng mạng VPC, 02 Subnet, liên kết Route Table và kiểm tra IAM LabRole trên AWS Learner Lab.
-* Khởi tạo S3 Bucket lưu trữ và cấu hình gắn Tag tài nguyên nền tảng.
-* Khởi tạo GitHub Repository, cấu hình tài liệu chuẩn (`README.md`, `WORKLOG.md`) và hoàn thành tài liệu báo cáo tiến độ tuần 1.
+* Phân tích yêu cầu, xác định chức năng và mô hình dữ liệu tra cứu điểm thi.
+* Nghiên cứu lý thuyết các dịch vụ cốt lõi: API Gateway (Caching/Throttling), AWS Lambda, Amazon DynamoDB, ElastiCache và CloudWatch.
+* Thiết kế mô hình kiến trúc hệ thống chịu tải đột biến và quy ước gắn nhãn (Tagging) cho tài nguyên.
+* Dựng hạ tầng nền tảng trên AWS Learner Lab: Kiểm tra LabRole, tạo VPC và S3 Bucket.
+* Kiểm tra quy chuẩn Tagging (`Project`/`Owner`), tổng hợp ảnh minh chứng và hoàn thành tài liệu báo cáo tuần 1.
 
 ---
 
 ## 1. BẢNG TỔNG HỢP PHÂN CÔNG VÀ GIỜ LÀM VIỆC TUẦN 1
 
-| Công việc | Nguyễn Thành Huy (24110222) | [Tên Thành Viên 2] ([MSSV 2]) | Trạng thái |
+| Công việc | Nguyễn Anh Quân (24110309) | Nguyễn Thành Huy (24110222) | Trạng thái |
 | :--- | :---: | :---: | :---: |
-| Tìm hiểu lý thuyết API Gateway, Lambda, DynamoDB, CloudWatch | ✓ | ✓ | Hoàn thành |
-| Thiết kế kiến trúc dự kiến và quy ước tag tài nguyên | | ✓ | Hoàn thành |
-| Dựng hạ tầng VPC, 2 Subnet, Route Table & kiểm tra IAM LabRole | ✓ | | Hoàn thành |
-| Khởi tạo S3 Bucket và cấu hình gắn Tag tài nguyên | ✓ | | Hoàn thành |
-| Cấu hình GitHub Repo, viết WORKLOG, README & báo cáo Tiến độ | ✓ | ✓ | Hoàn thành |
+| Phân tích yêu cầu, xác định chức năng và dữ liệu tra cứu | ✓ | | Hoàn thành |
+| Tìm hiểu DynamoDB, Lambda và thiết kế kiến trúc | ✓ | | Hoàn thành |
+| Tìm hiểu API Gateway caching, throttling, CloudWatch và khảo sát ElastiCache | | ✓ | Hoàn thành |
+| Kiểm tra Learner Lab, LabRole, dựng VPC và S3 | ✓ | | Hoàn thành |
+| Vẽ sơ đồ kiến trúc, tổng hợp báo cáo tuần 1 | ✓ | | Hoàn thành |
+| Kiểm tra tag Project/Owner, tổng hợp ảnh minh chứng và cập nhật worklog | | ✓ | Hoàn thành |
 
 ---
 
 ## 2. CHI TIẾT CÔNG VIỆC TỪNG SINH VIÊN
 
-### Sinh viên 1: Nguyễn Thành Huy (MSSV: 24110222)
+### Sinh viên 1: Nguyễn Anh Quân (MSSV: 24110309)
+* **Phân tích yêu cầu & Thiết kế:** Phân tích yêu cầu bài toán tra cứu điểm thi chịu tải đột biến, xác định các chức năng cốt lõi và cấu trúc dữ liệu tra cứu.
+* **Nghiên cứu công nghệ:** Tìm hiểu cơ chế hoạt động của Amazon DynamoDB (NoSQL) và AWS Lambda (Serverless Compute) ứng dụng cho hệ thống.
+* **Dựng hạ tầng mạng & Lưu trữ:** Kiểm tra môi trường AWS Learner Lab, phân quyền IAM LabRole, khởi tạo mạng ảo VPC và S3 Bucket làm nền tảng triển khai.
+* **Tổng hợp tài liệu:** Vẽ sơ đồ kiến trúc hệ thống tổng quan và tổng hợp bản thảo báo cáo tiến độ Tuần 1.
 
-* **Tìm hiểu công nghệ:** Nghiên cứu tổng quan về mô hình Serverless, cơ chế hoạt động của AWS Lambda, Amazon API Gateway và cơ sở dữ liệu NoSQL DynamoDB.
-* **Khởi tạo hạ tầng mạng:** Thực hiện thao tác trên AWS Learner Lab khởi tạo mạng ảo VPC, phân chia 02 Subnet, thiết lập và liên kết Route Table đảm bảo định tuyến mạng; đồng thời kiểm tra phân quyền bảo mật của IAM LabRole.
-* **Cấu hình lưu trữ & Quản lý tài nguyên:** Khởi tạo S3 Bucket dùng làm nơi lưu trữ tài nguyên/mã nguồn, thiết lập hệ thống Tagging quản lý theo đúng quy ước của nhóm.
-* **Quản lý mã nguồn & Báo cáo:** Tự khởi tạo GitHub Repository, thiết lập các file tài liệu chuẩn `README.md`, `WORKLOG.md` và chuyển đổi báo cáo sang định dạng Markdown chuẩn trên GitHub.
-
-### Sinh viên 2: [Tên Thành Viên 2] (MSSV: [MSSV 2])
-
-* **Nghiên cứu lý thuyết:** Phối hợp nghiên cứu tài liệu kỹ thuật về các dịch vụ chịu tải cao của AWS như API Gateway caching, Lambda execution lifecycle và giám sát hệ thống bằng CloudWatch Logs/Metrics.
-* **Thiết kế hệ thống:** Xây dựng bản thiết kế kiến trúc dự kiến cho hệ thống Tra cứu điểm thi chịu tải đột biến và định nghĩa quy chuẩn gắn nhãn (`Tags`) cho toàn bộ tài nguyên AWS.
-* **Lập tài liệu:** Tổng hợp thông tin, soạn thảo và hoàn thiện nội dung báo cáo tiến độ công việc của tuần 1.
+### Sinh viên 2: Nguyễn Thành Huy (MSSV: 24110222)
+* **Nghiên cứu công nghệ chịu tải:** Tìm hiểu chuyên sâu cơ chế API Gateway Caching, Throttling/Rate Limiting, giám sát qua CloudWatch và khảo sát giải pháp caching với Amazon ElastiCache để xử lý tải đột biến.
+* **Quản lý tài nguyên & Minh chứng:** Kiểm tra và áp dụng chuẩn gắn nhãn (`Tag: Project/Owner`) cho toàn bộ tài nguyên AWS đã khởi tạo; thu thập và tổng hợp toàn bộ ảnh chụp minh chứng thao tác.
+* **Quản lý mã nguồn & Worklog:** Cấu hình repository GitHub, viết file `README.md`, khởi tạo và cập nhật nhật ký công việc `WORKLOG.md`, đồng thời chuyển đổi tài liệu báo cáo sang chuẩn Markdown.
