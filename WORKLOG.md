@@ -35,13 +35,13 @@ Mục tiêu tuần 1:
 
 ### Công việc thực hiện
 
-| Thành viên | Công việc | Kết quả | 
-| --- | --- | --- | --- |
-| Nguyễn Anh Quân – 24110309 | Tạo bảng DynamoDB `exam-scores`, chọn khóa phân vùng `sbd` kiểu String và thêm dữ liệu giả lập | Đã lưu 1 bản ghi mẫu, kiểm tra dữ liệu theo số báo danh | 
-| Nguyễn Anh Quân – 24110309 | Tạo Lambda `exam-score-lookup` bằng Python 3.12, sử dụng LabRole và viết chức năng tra cứu | Lambda đọc được DynamoDB, trả kết quả JSON và xử lý đầu vào không hợp lệ | 
-| Nguyễn Anh Quân – 24110309 | Tạo REST API `exam-score-api`, cấu hình GET `/scores` tích hợp Lambda proxy và deploy stage `dev` | Gọi API qua URL và nhận đúng thông tin điểm thi | 
-| Nguyễn Thành Huy – 24110222| Kiểm thử trường hợp tồn tại, không tồn tại, thiếu và sai định dạng số báo danh; kiểm tra CloudWatch Logs | Hoàn thành kiểm thử chức năng và lưu ảnh minh chứng | 
-| Nguyễn Thành Huy – 24110222 | Tổng hợp báo cáo, bổ sung ảnh, lưu mã nguồn và cập nhật GitHub | Hoàn thiện báo cáo tuần 2 | 
+| Thành viên | Công việc | Kết quả |
+| --- | --- | --- |
+| Nguyễn Anh Quân – 24110309 | Tạo bảng DynamoDB exam-scores, chọn khóa sbd kiểu String và thêm dữ liệu giả lập | Đã lưu và kiểm tra 1 bản ghi mẫu |
+| Nguyễn Anh Quân – 24110309 | Tạo Lambda exam-score-lookup bằng Python 3.12, sử dụng LabRole và viết chức năng tra cứu | Lambda đọc được DynamoDB và trả kết quả JSON |
+| Nguyễn Anh Quân – 24110309 | Tạo REST API exam-score-api, cấu hình GET /scores kết nối Lambda và deploy stage dev | Gọi API qua URL và nhận đúng thông tin điểm thi |
+| Nguyễn Thành Huy – 24110222 | Kiểm thử các trường hợp tra cứu và kiểm tra CloudWatch Logs | Hoàn thành kiểm thử và lưu ảnh minh chứng |
+| Nguyễn Thành Huy – 24110222 | Tổng hợp báo cáo và cập nhật GitHub | Hoàn thiện báo cáo tuần 2 |
 
 
 ### Kết quả tuần 2
