@@ -54,7 +54,23 @@ Mục tiêu tuần 2:
 | **Nguyễn Anh Quân** (24110309) | - Tạo bảng DynamoDB `exam-scores`, chọn khóa `sbd` kiểu String và thêm dữ liệu giả lập.<br>- Tạo Lambda `exam-score-lookup` bằng Python 3.12, sử dụng LabRole.<br>- Tạo REST API `exam-score-api`, cấu hình GET `/scores` kết nối Lambda và deploy stage dev. | 10 giờ | Đã lưu và kiểm tra 1 bản ghi mẫu; Lambda đọc được DynamoDB và trả kết quả JSON; Gọi API qua URL nhận đúng thông tin điểm thi. |
 | **Nguyễn Thành Huy** (24110222) | - Kiểm thử các trường hợp tra cứu (tồn tại, không tồn tại, sai định dạng) và kiểm tra CloudWatch Logs.<br>- Tổng hợp báo cáo, cập nhật GitHub và liên kết các Commit. | 10 giờ | Hoàn thành kiểm thử, lưu ảnh minh chứng, hoàn thiện báo cáo tuần 2 và cập nhật mã nguồn, tài liệu lên GitHub. |
 
-## 2. KẾT QUẢ VÀ PHẠM VI THỰC HIỆN TUẦN 2
+---
+
+## 2. CHI TIẾT CÔNG VIỆC TỪNG SINH VIÊN
+
+### Sinh viên 1: Nguyễn Anh Quân (MSSV: 24110309)
+- **Khởi tạo cơ sở dữ liệu:** Tạo bảng Amazon DynamoDB mang tên `exam-scores`, thiết lập khóa phân vùng (Partition Key) là `sbd` (kiểu String) và thêm thành công bản ghi thí sinh giả lập đầu tiên để kiểm thử chức năng.
+- **Xây dựng hàm xử lý Serverless:** Viết mã nguồn hàm AWS Lambda `exam-score-lookup` sử dụng ngôn ngữ Python 3.12, cấu hình gắn quyền LabRole để hàm có quyền truy vấn đọc dữ liệu từ DynamoDB, đồng thời xử lý các logic ràng buộc (kiểm tra tồn tại, thiếu hoặc sai định dạng số báo danh).
+- **Triển khai REST API:** Tạo API Gateway mang tên `exam-score-api`, cấu hình phương thức `GET /scores` tích hợp dạng Lambda proxy, đồng thời tiến hành deploy API thành công tại môi trường `dev`.
+
+### Sinh viên 2: Nguyễn Thành Huy (MSSV: 24110222)
+- **Kiểm thử chức năng hệ thống:** Thực hiện các test case kiểm tra luồng hoạt động xuyên suốt từ API Gateway đến Lambda và DynamoDB qua URL thực tế; xác minh các trường hợp số báo danh hợp lệ, không tồn tại, hoặc nhập sai định dạng.
+- **Giám sát & Quản lý Log thực thi:** Truy cập và kiểm tra chi tiết các nhật ký thực thi (Execution Logs) của hàm Lambda trên CloudWatch Logs để đảm bảo không phát sinh lỗi và thời gian phản hồi đạt yêu cầu.
+- **Quản lý tài liệu & Mã nguồn:** Tổng hợp ảnh chụp minh chứng toàn bộ các bước thực hiện, hoàn thiện văn bản báo cáo chi tiết tuần 2, đồng thời cập nhật mã nguồn, tài liệu và liên kết các Commit lên GitHub theo đúng yêu cầu của giảng viên.
+
+---
+
+## 3. KẾT QUẢ VÀ PHẠM VI THỰC HIỆN TUẦN 2
 - Triển khai thành công luồng API Gateway → Lambda → DynamoDB.
 - Tra cứu thành công số báo danh mẫu `01000001`.
 - Xử lý thành công các trường hợp không tìm thấy, thiếu hoặc sai định dạng số báo danh.
@@ -64,7 +80,7 @@ Mục tiêu tuần 2:
 
 ---
 
-## 3. KẾ HOẠCH CHI TIẾT TUẦN 3
+## 4. KẾ HOẠCH CHI TIẾT TUẦN 3
 
 - **Nạp 100.000 bản ghi vào DynamoDB:** Viết script Python (sử dụng `boto3` và `batch_write_item`) để sinh dữ liệu giả lập và nạp 100.000 thí sinh vào bảng DynamoDB theo từng batch (mỗi batch tối đa 25 bản ghi), tính toán và ước tính dung lượng lưu trữ thực tế.
 - **Kiểm thử tải (Load Testing):** Sử dụng công cụ kiểm thử tải (như Apache JMeter hoặc Locust) để bắn tải đồng thời vào API Gateway, đo lường các chỉ tiêu hiệu năng dự kiến (độ trễ phản hồi trung bình - Latency, số lượng request xử lý trên giây - RPS, tỷ lệ lỗi - Error Rate).
