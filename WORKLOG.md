@@ -64,7 +64,7 @@ Mục tiêu tuần 2:
 
 ---
 
-## 3. KẾT HOẠCH CHI TIẾT TUẦN 3
+## 3. KẾ HOẠCH CHI TIẾT TUẦN 3
 
 - **Nạp 100.000 bản ghi vào DynamoDB:** Viết script Python (sử dụng `boto3` và `batch_write_item`) để sinh dữ liệu giả lập và nạp 100.000 thí sinh vào bảng DynamoDB theo từng batch (mỗi batch tối đa 25 bản ghi), tính toán và ước tính dung lượng lưu trữ thực tế.
 - **Kiểm thử tải (Load Testing):** Sử dụng công cụ kiểm thử tải (như Apache JMeter hoặc Locust) để bắn tải đồng thời vào API Gateway, đo lường các chỉ tiêu hiệu năng dự kiến (độ trễ phản hồi trung bình - Latency, số lượng request xử lý trên giây - RPS, tỷ lệ lỗi - Error Rate).
