@@ -142,3 +142,69 @@ Mục tiêu tuần 3:
 - **Rà soát toàn bộ tài nguyên AWS:** Tiến hành kiểm tra, dọn dẹp và ngắt kết nối các tài nguyên có phát sinh chi phí theo giờ (như API Gateway Cache Cluster) trên AWS Learner Lab.
 - **Tổng hợp báo cáo và tổng kết dự án:** Hoàn thiện file báo cáo tổng hợp dự án Tra cứu điểm thi chịu tải đột biến trên AWS, đối chiếu các yêu cầu ban đầu với kết quả kiểm thử thực tế.
 - **Đóng gói mã nguồn & Tài liệu:** Kiểm tra lại toàn bộ cấu trúc thư mục dự án trên GitHub (`src/`, `scripts/`, `docs/`), đảm bảo file `README.md` và `WORKLOG.md` cập nhật đầy đủ thông tin trước khi nộp bài cuối kỳ.
+  # TUẦN 4: KIỂM THỬ TỔNG THỂ, ĐÁNH GIÁ HIỆU NĂNG, HOÀN THIỆN GIAO DIỆN WEB VÀ DEMO HỆ THỐNG
+
+Thời gian thực hiện: [điền thời gian thực tế]
+
+Mục tiêu tuần 4:
+- Kiểm thử tổng thể chức năng tra cứu và bảo mật API.
+- Đánh giá khả năng đáp ứng thông qua các kịch bản kiểm thử tải.
+- Phân tích hiệu quả cache, throttling và số liệu giám sát CloudWatch.
+- Xây dựng giao diện web cơ bản kết nối với backend AWS.
+- Tổng hợp chi phí sử dụng và đề xuất tối ưu hệ thống.
+- Hoàn thiện báo cáo tuần 4 và quay video demo.
+
+---
+
+## 1. BẢNG TỔNG HỢP PHÂN CÔNG VÀ GIỜ LÀM VIỆC TUẦN 4
+
+| Thành viên | Công việc thực hiện | Giờ làm việc | Kết quả |
+| :--- | :--- | :---: | :--- |
+| **Nguyễn Anh Quân** (24110309) | - Xây dựng giao diện web tra cứu điểm bằng Flask, HTML, CSS và JavaScript.<br>- Kết nối giao diện với API AWS bằng request ký SigV4; bổ sung endpoint trả JSON.<br>- Kiểm thử chức năng tra cứu và bảo mật API.<br>- Quay video demo hệ thống.<br>- Viết phần báo cáo về kiến trúc, giao diện và kiểm thử chức năng. | [điền số giờ thực tế] | Giao diện kết nối thành công với backend AWS; hiển thị đúng dữ liệu thí sinh và cảnh báo sai định dạng; endpoint cục bộ trả JSON; hoàn thành bản quay demo khoảng 2 phút 33 giây và bổ sung nội dung báo cáo phần phụ trách. |
+| **Nguyễn Thành Huy** (24110222) | [Thành viên bổ sung công việc thực tế] | [điền] | [Thành viên bổ sung kết quả] |
+
+---
+
+## 2. CHI TIẾT CÔNG VIỆC TỪNG SINH VIÊN
+
+### Sinh viên 1: Nguyễn Anh Quân (MSSV: 24110309)
+
+- **Xây dựng giao diện web tra cứu điểm:** Sử dụng Flask, HTML, CSS và JavaScript để xây dựng trang nhập số báo danh, nút Tra cứu và khu vực hiển thị họ tên, điểm Toán, Ngữ văn, Tiếng Anh. Giao diện kiểm tra số báo danh gồm 8 chữ số, giữ nguyên số 0 ở đầu và hiển thị thông báo khi nhập sai định dạng.
+
+- **Tích hợp giao diện với backend AWS:** Xây dựng phần xử lý Python ký request bằng SigV4 rồi gọi API Gateway `GET /scores`. Giữ cơ chế xác thực `AWS_IAM`; thông tin phiên Learner Lab được lưu riêng ngoài thư mục mã nguồn, không đưa vào HTML, JavaScript hoặc GitHub.
+
+- **Bổ sung endpoint JSON:** Xây dựng endpoint cục bộ `GET /api/scores?sbd=...`, cho phép xem kết quả JSON trực tiếp trên trình duyệt. Flask chuyển tiếp request có ký tới API AWS và trả kết quả về phía người dùng.
+
+- **Kiểm thử chức năng và bảo mật API:** Kiểm tra tra cứu số báo danh hợp lệ, đối chiếu dữ liệu trả về, các trường hợp không tìm thấy, thiếu hoặc sai định dạng số báo danh; kiểm tra phản hồi đối với request có và không có chữ ký SigV4. Phân biệt kiểm tra đầu vào trên giao diện với kiểm thử trực tiếp API AWS.
+
+- **Quay video demo hệ thống:** Quay màn hình giới thiệu kiến trúc, thao tác tra cứu các số báo danh, kiểm tra đầu vào và xem phản hồi JSON. Giới thiệu các cấu hình DynamoDB, Lambda Reserved Concurrency, API Gateway Cache/TTL/Throttling và dashboard CloudWatch. Bản quay màn hình dài khoảng 2 phút 33 giây.
+
+- **Hoàn thiện nội dung báo cáo phần phụ trách:** Bổ sung mô tả kiến trúc, giao diện web, luồng kết nối Flask – API Gateway – Lambda – DynamoDB, cơ chế bảo mật và kết quả kiểm thử chức năng; chuẩn bị các vị trí ảnh minh chứng tương ứng.
+
+### Sinh viên 2: Nguyễn Thành Huy (MSSV: 24110222)
+
+[Thành viên bổ sung chi tiết công việc thực tế tại đây.]
+
+---
+
+## 3. KẾT QUẢ VÀ PHẠM VI THỰC HIỆN TUẦN 4
+
+- Kiểm thử chức năng tra cứu và cơ chế bảo mật `AWS_IAM` trên hệ thống đã triển khai.
+- Thực hiện các kịch bản kiểm thử tải, tổng hợp RPS, số lượng phản hồi và độ trễ p50, p95, p99.
+- Đánh giá hiệu quả cache thông qua CacheHitCount, CacheMissCount và số lượt thực thi Lambda.
+- Phân tích phản hồi khi vượt giới hạn throttling, tách riêng mã 429 và lỗi 5xx.
+- Bổ sung giao diện web chạy cục bộ, kết nối với các dịch vụ backend trên AWS.
+- Tra cứu thành công các số báo danh `01000001`, `01050000` và `01100000` trên giao diện.
+- Cung cấp endpoint cục bộ trả JSON qua request có ký tới API AWS.
+- Tổng hợp chi phí sử dụng, các giới hạn còn lại và đề xuất tối ưu.
+- Hoàn thành bản quay màn hình demo và bổ sung nội dung báo cáo tuần 4.
+- **Phạm vi tuần 4:** Đánh giá hệ thống trong điều kiện cấu hình và tải thử nghiệm của AWS Learner Lab; kết quả không đại diện cho khả năng phục vụ 100.000 người truy cập đồng thời.
+
+---
+
+## 4. HOÀN THIỆN BÁO CÁO VÀ DEMO CUỐI KỲ
+
+- **Rà soát nội dung:** Đối chiếu kết quả kiểm thử, bảng cấu hình và nhận xét với dữ liệu thực tế; thống nhất các thông số trong toàn bộ báo cáo.
+- **Hoàn thiện minh chứng:** Bổ sung ảnh kiểm thử, giao diện, JSON, CloudWatch và nguồn số liệu chi phí; điền các thông tin còn trống.
+- **Hoàn thiện video:** Bàn giao bản quay màn hình và kịch bản thuyết minh; bảo đảm video hoàn chỉnh không vượt quá 10 phút.
+- **Tổng kết dự án:** Đối chiếu yêu cầu đề tài với kết quả đạt được, nêu rõ phạm vi kiểm thử và những hạn chế của môi trường Learner Lab.
