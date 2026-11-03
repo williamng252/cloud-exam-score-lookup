@@ -161,8 +161,7 @@ Mục tiêu tuần 4:
 | Thành viên | Công việc thực hiện | Giờ làm việc | Kết quả |
 | :--- | :--- | :---: | :--- |
 | **Nguyễn Anh Quân** (24110309) | - Xây dựng giao diện web tra cứu điểm bằng Flask, HTML, CSS và JavaScript.<br>- Kết nối giao diện với API AWS bằng request ký SigV4; bổ sung endpoint trả JSON.<br>- Kiểm thử chức năng tra cứu và bảo mật API.<br>- Quay video demo hệ thống.<br>- Viết phần báo cáo về kiến trúc, giao diện và kiểm thử chức năng. | 10 Giờ | Giao diện kết nối thành công với backend AWS; hiển thị đúng dữ liệu thí sinh và cảnh báo sai định dạng; endpoint cục bộ trả JSON; hoàn thành bản quay demo khoảng 2 phút 33 giây và bổ sung nội dung báo cáo phần phụ trách. |
-| **Nguyễn Thành Huy** (24110222) | [Thành viên bổ sung công việc thực tế] | [điền] | [Thành viên bổ sung kết quả] |
-
+| **Nguyễn Thành Huy** (24110222) | - Thực hiện và tổng hợp kiểm thử tải hệ thống ở các mức 3, 5, 10 và 20 RPS.<br>- Phân tích độ trễ, tỷ lệ phản hồi 200/429/5xx và khả năng đáp ứng.<br>- Đánh giá hiệu quả cache, throttling và các chỉ số CloudWatch.<br>- Tổng hợp chi phí, đề xuất tối ưu và viết phần báo cáo hiệu năng, giám sát, chi phí. | [điền số giờ thực tế] | Tổng hợp kết quả kiểm thử tải; so sánh cache bật/tắt và phân bố dữ liệu hot/mixed; phân tích phản hồi 429 khi vượt ngưỡng; hoàn thiện nội dung báo cáo hiệu năng, giám sát và bảng ước tính chi phí. |
 ---
 
 ## 2. CHI TIẾT CÔNG VIỆC TỪNG SINH VIÊN
@@ -183,9 +182,17 @@ Mục tiêu tuần 4:
 
 ### Sinh viên 2: Nguyễn Thành Huy (MSSV: 24110222)
 
-[Thành viên bổ sung chi tiết công việc thực tế tại đây.]
+- **Kiểm thử tải tổng thể:** Thực hiện các kịch bản gửi request có ký SigV4 ở các mức 3, 5, 10 và 20 RPS, mỗi lượt kéo dài 60 giây. So sánh trường hợp tắt cache, bật cache với nhóm số báo danh truy cập lặp (hot) và phân bố ngẫu nhiên trên bộ dữ liệu 100.000 thí sinh (mixed).
 
----
+- **Tổng hợp và phân tích hiệu năng:** Tổng hợp kết quả CSV/JSON, thống kê RPS gửi thực tế, goodput, số lượng phản hồi 200, 429, 5xx, lỗi mạng và độ trễ p50, p95, p99. Phân biệt mức tải đáp ứng tiêu chí với mức tải bị throttling; không sử dụng kết quả để khẳng định hệ thống phục vụ được 100.000 người đồng thời.
+
+- **Đánh giá cache và giám sát CloudWatch:** Đối chiếu CacheHitCount, CacheMissCount, Lambda Invocations, Throttles và ConcurrentExecutions trong cùng cửa sổ đo. Kịch bản hot ghi nhận tỷ lệ cache hit khoảng 94,4%, số lượt gọi Lambda giảm từ 180 xuống 10; kịch bản mixed ghi nhận tỷ lệ cache hit khoảng 8,3%.
+
+- **Phân tích giới hạn truy cập:** Với cấu hình Rate = 5 RPS và Burst = 10, các lượt thử 10 và 20 RPS lần lượt ghi nhận 256 và 855 phản hồi HTTP 429, không ghi nhận lỗi 5xx trong các lượt đo. Phân tích vai trò throttling trong việc kiểm soát lượng request chuyển đến backend.
+
+- **Tổng hợp chi phí và đề xuất tối ưu:** Lập bảng ước tính chi phí theo dịch vụ và thời gian sử dụng, ghi rõ nguồn đơn giá và phân biệt với số liệu chi phí thực tế. Đánh giá chi phí duy trì API Gateway Cache, đề xuất chỉ provision cache trong thời gian cần thiết và tránh bổ sung hạ tầng không sử dụng.
+
+- **Hoàn thiện báo cáo phần phụ trách:** Viết các phần kiểm thử tải, hiệu quả cache, giám sát CloudWatch, phân tích quá tải, chi phí và đề xuất tối ưu; bổ sung bảng kết quả và ảnh minh chứng tương ứng.
 
 ## 3. KẾT QUẢ VÀ PHẠM VI THỰC HIỆN TUẦN 4
 
